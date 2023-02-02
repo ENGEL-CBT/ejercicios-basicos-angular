@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-ejer1',
-  templateUrl: './ejer1.component.html'
+  selector: 'app-ejer9',
+  templateUrl: './ejer9.component.html'
 })
-export class Ejer1Component {  
+export class Ejer9Component {  
 
   letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
   conju = ['h','l','r','y']
