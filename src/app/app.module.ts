@@ -15,6 +15,10 @@ import { Ejer7Component } from './ejercicios/ejer7/ejer7.component';
 import { Ejer8Component } from './ejercicios/ejer8/ejer8.component';
 import { Ejer9Component } from './ejercicios/ejer9/ejer9.component';
 import { Ejer10Component } from './ejercicios/ejer10/ejer10.component';
+import { DadoComponent } from './ejercicios/dado/dado.component';
+import { DadosComponent } from './ejercicios/dado/dados/dados.component';
+import { CronometroComponent } from './ejercicios/cronometro/cronometro.component';
+import { CronoHijoComponent } from './ejercicios/cronometro/crono-hijo/crono-hijo.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { Ejer10Component } from './ejercicios/ejer10/ejer10.component';
     Ejer7Component,
     Ejer8Component,
     Ejer9Component,
-    Ejer10Component
+    Ejer10Component,
+    DadoComponent,
+    DadosComponent,
+    CronometroComponent,
+    CronoHijoComponent
   ],
   imports: [
     BrowserModule,

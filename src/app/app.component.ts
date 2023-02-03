@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Ejer1Component } from './ejercicios/ejer1/ejer1.component';
 import { Ejer2Component } from './ejercicios/ejer2/ejer2.component';
@@ -10,6 +10,8 @@ import { Ejer7Component } from './ejercicios/ejer7/ejer7.component';
 import { Ejer8Component } from './ejercicios/ejer8/ejer8.component';
 import { Ejer9Component } from './ejercicios/ejer9/ejer9.component';
 import { Ejer10Component } from './ejercicios/ejer10/ejer10.component';
+import { DadoComponent } from './ejercicios/dado/dado.component';
+import { CronometroComponent } from './ejercicios/cronometro/cronometro.component';
 
 @Component({
   selector: 'app-root',
@@ -17,26 +19,32 @@ import { Ejer10Component } from './ejercicios/ejer10/ejer10.component';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit  {
 
   title = 'ejercicios-basicos'
   ejercicios = [1,2,3,4,5,6,7,8,9,10]
-  componentes = [Ejer1Component, Ejer2Component, Ejer3Component, Ejer4Component, Ejer5Component, Ejer6Component, Ejer7Component, Ejer8Component, Ejer9Component, Ejer10Component]
+  componentes = [Ejer1Component, Ejer2Component, DadoComponent, CronometroComponent, Ejer5Component, Ejer6Component, Ejer7Component, Ejer8Component, Ejer9Component, Ejer10Component]
 
-  componente: any = Ejer1Component;
+  componente: any = Ejer1Component
+
+  constructor() { }
+
+  ngOnInit() {
+    this.setComponent(0)
+  }
 
   setComponent(index: number) {
-    this.componente = this.componentes[index];
+    this.componente = this.componentes[index]
   }
 
   getRandomNumber = (limit: any) => {
-    return Math.floor(Math.random() * limit);
-  };
+    return Math.floor(Math.random() * limit)
+  }
   
-  public getRandomColor = () => {
-    const h = this.getRandomNumber(360);  
-    return `hsl(${h}deg, 80%, 93%)`;
-  };
+  getRandomColor = () => {
+    const h = this.getRandomNumber(360)
+    return `hsl(${h}deg, 80%, 93%)`
+  }
 }
 
 
