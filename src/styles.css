@@ -15,6 +15,45 @@ h1 {
     color: rgb(130, 101, 133);
 }
 
+table {
+    font-size: medium !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgb(130, 101, 133);
+}
+
+td {
+    font-size: medium !important;
+    border-collapse: collapse;
+    border-spacing: 0;text-align: center;
+    border: 1px solid rgb(130, 101, 133);
+}
+
+.tableNames {
+    width: 100%;
+    text-align: center;
+    /* border-spacing: 8vh; */
+    -webkit-border-horizontal-spacing: 4vh;
+    -webkit-border-vertical-spacing: 4vh;
+    /* display: inline-table;
+    border: 1px solid rgb(130, 101, 133);
+    padding: 1%;
+    font-size: x-large; */
+}
+
+.tdNames {
+    width: 16%;
+    height: 10vh;
+    border: 1px solid rgb(130, 101, 133);
+    text-align: center;
+    padding-top: 10vh;
+    /* margin-right: 26vh;
+    margin-bottom: 8vh; */
+    /* display: inline-block; */
+}
+
 hr {
     border: 1px solid rgb(130, 101, 133);
 }
@@ -28,26 +67,48 @@ hr {
     margin: 3%;
 }
 
-td {
-    border: 1px solid rgb(130, 101, 133);
-    padding: 1%;
-    font-size: 0.5em;
-}
-
 input {
     width: 100%;
     height: 2em;
 }
 
 button {
-    width: 5em;
+    width: 10em;
     height: 3em;
     background-color: rgb(231, 201, 240);
     border: 1px solid rgb(130, 101, 133);
     border-radius: 20px;
-    margin-left: 1%;
+    margin: 1%;
+    padding: 1%;
 }
 
 button:hover {
     background-color: rgb(231, 169, 252);
+}
+
+.btnOne {
+    width: 10em;
+    height: 3em;
+    background-color: rgb(231, 201, 240);
+    border: 1px solid rgb(130, 101, 133);
+    border-radius: 20px;
+    margin: 4% 0% 4% 0%;
+    color: rgb(102, 102, 102);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+}
+
+.btnOne:hover {
+    background-color: rgb(231, 169, 252);
+}
+
+.divCenter {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.divLike {
+    width: fit-content;
+    display: contents;
 }

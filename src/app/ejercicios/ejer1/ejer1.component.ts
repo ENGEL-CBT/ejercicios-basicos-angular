@@ -19,6 +19,8 @@ export class Ejer1Component {
   meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre']
   consulta = ''
 
+  constructor() { }
+
   sumarSueldos() {
     let suma = 0;
     for (let i = 0; i < this.sueldos.length; i++) {

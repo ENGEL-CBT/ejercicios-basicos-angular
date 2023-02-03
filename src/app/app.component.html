@@ -4,7 +4,7 @@
   <button type="button" *ngFor="let ejer of ejercicios; let i = index" (click)="setComponent(i)">{{ejer}}</button>
 </div>
 
-<div>
+<div id="seccion" [ngStyle]="{'background-color':getRandomColor()}">
   <ng-container *ngComponentOutlet="componente"></ng-container>
 </div>
 

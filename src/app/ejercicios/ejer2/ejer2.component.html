@@ -1,30 +1,34 @@
 
-<div id="seccion">
+<div>
   
   <h3>Ejercicio 2</h3>
   
-  <h3>Interpolación de Datos:</h3>
+  <h3>Administración de Artículos:</h3>
 
-  <p>
-    Nombre: {{nombre}} <br>
-    Apellido: {{apellido}} <br>
-    Edad: {{edad}}
-  </p>
-  <p *ngIf="edad >= 18; else menor">
-    Es mayor de edad <br>
-    Salarios cobrados: <br>
-    <td *ngFor="let sueldo of sueldos; let i = index;" id="salarios"> {{meses[i]}}: {{sueldo | currency: 'EUR'}} </td>
-    Media de salario: {{sumarSueldos()/sueldos.length | currency: 'EUR'}} <br>
-  </p>
-  <ng-template #menor> 
-    <p>
-    Es menor de edad <br>
-    Está estudiando
-    </p> 
-  </ng-template>
-  <p>
-    Consulta: <input type="text" [(ngModel)]="consulta" placeholder="Ingrese su consulta" /> <br>
-    Consulta ingresada: <strong> {{consulta}} </strong> <br>
-  </p>
+  <table>
+    <thead>
+      <th>Código</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Borar</th>
+      <th>Seleccionar</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let articulo of articArr">
+        <td>{{articulo.cod}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio}}</td>
+        <td><button (click)="delArtic(articulo.cod)">Borrar</button></td>
+        <td><button (click)="selArtic(articulo)">Seleccionar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <input [(ngModel)]="art.cod" type="number" placeholder="Código">
+  <input [(ngModel)]="art.descripcion" type="text" placeholder="Descripción">
+  <input [(ngModel)]="art.precio" type="number" placeholder="Precio">
+  <button (click)="newArtic()">Agregar</button>
+  <button (click)="modArtic()">Modificar</button>
 
 </div>

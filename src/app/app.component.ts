@@ -23,11 +23,20 @@ export class AppComponent {
   ejercicios = [1,2,3,4,5,6,7,8,9,10]
   componentes = [Ejer1Component, Ejer2Component, Ejer3Component, Ejer4Component, Ejer5Component, Ejer6Component, Ejer7Component, Ejer8Component, Ejer9Component, Ejer10Component]
 
-  public componente = Ejer1Component;
+  componente: any = Ejer1Component;
 
   setComponent(index: number) {
     this.componente = this.componentes[index];
   }
+
+  getRandomNumber = (limit: any) => {
+    return Math.floor(Math.random() * limit);
+  };
+  
+  public getRandomColor = () => {
+    const h = this.getRandomNumber(360);  
+    return `hsl(${h}deg, 100%, 93%)`;
+  };
 }
 
 

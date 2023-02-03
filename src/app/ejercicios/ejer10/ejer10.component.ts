@@ -11,20 +11,42 @@ export class Ejer10Component {
   noConju = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
   vocales = ['a','e','i','o','u']
 
-  nombre = this.getNombre();
-  apellido = this.getRandomName();
-  edad = this.getRandom()
-  edades = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
-  sueldos = [1500, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
-  meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre']
-  consulta = ''
+  fakeRows = new Array(2)
+  fakeColumns = new Array(3)
 
-  sumarSueldos() {
-    let suma = 0;
-    for (let i = 0; i < this.sueldos.length; i++) {
-      suma += this.sueldos[i];
-    }
-    return suma;
+  imgLike = '../../../assets/images/heart.png'
+  imgLikeGray = '../../../assets/images/heart-gray.png'
+  imgChange = true
+
+  likesMap = new Map<string, boolean>()
+  namesMap = new Map<string, string>()
+  favImages: string[] = []
+
+  likeChange(key: any) {
+    var valor = this.likesMap.get(key)
+    console.log("************* Value: " + this.likesMap.get(key))
+    if (valor == true) valor = false
+    else valor = true
+    this.likesMap.set(key, valor);
+    console.log("************* Value: " + this.likesMap.get(key))
+    var name = this.namesMap.get(key)
+    this.favImages.push(name!)
+    console.log("************* Name Inn: " + name)
+    console.log("************* favImage: " + this.favImages[this.favImages.length - 1])
+  }
+
+  setMap(key: string) {
+    this.likesMap.set(key, true)
+  }
+
+  setNames(key: string) {
+    var name = this.getNombre()
+    this.namesMap.set(key, name)
+    return name
+  }
+
+  generarNombres() {
+    
   }
 
   getRandom() {
@@ -80,31 +102,8 @@ export class Ejer10Component {
     var letraResto = '';
     for (i=1; i < name.length; i++) {
       letraResto += name[i];
-    }
+    }    
     return letraPrima + letraResto;
-  }
-
-  // Método creado por Chat GPT3
-  getRandomName(): string {
-    const nameLength = Math.floor(Math.random() * 6) + 3;
-    let name = '';
-    let previousLetter = '';
-  
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    const consonients = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
-  
-    for (let i = 0; i < nameLength; i++) {
-      let letter = '';
-      if (previousLetter === '' || vowels.includes(previousLetter)) {
-        letter = consonients[Math.floor(Math.random() * consonients.length)];
-      } else {
-        letter = vowels[Math.floor(Math.random() * vowels.length)];
-      }
-      name += letter;
-      previousLetter = letter;
-    }
-  
-    return name.charAt(0).toUpperCase() + name.slice(1);
   }
 
 }
