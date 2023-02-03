@@ -35,7 +35,7 @@ export class AppComponent {
   
   public getRandomColor = () => {
     const h = this.getRandomNumber(360);  
-    return `hsl(${h}deg, 100%, 93%)`;
+    return `hsl(${h}deg, 80%, 93%)`;
   };
 }
 

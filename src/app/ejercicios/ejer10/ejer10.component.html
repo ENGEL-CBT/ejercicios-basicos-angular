@@ -1,21 +1,30 @@
 
 <div>  
   <h3>Ejercicio 10</h3>  
-  <h3>Generador de Nombres:</h3>  
+  <h3>Generador de Nombres:</h3>
+
   <table class="tableNames">
-    <tr *ngFor="let itex of fakeRows; let x = index;">
-      <td *ngFor="let item of fakeColumns; let i = index;" class="tdNames">          
-        {{setNames( '{{x}}{{i}}' )}} <br><br>
-        <div (click)="likeChange('{{x}}{{i}}')" class="divLike">
-          <img *ngIf="!likesMap.get('{{x}}{{i}}'); else like"  src="{{imgLikeGray}}" alt="like" height="30px">
-          <ng-template #like>
-            <img src="{{imgLike}}" alt="like" height="30px">
-          </ng-template>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <div class="divCenter">
-    <button (click)="generarNombres()" class="btnOne">Generar Nombres</button> 
-  </div>
+    <td *ngFor="let item of cards; let i = index" class="tdNames">
+      {{item.name}} <br>
+      <div (click)="setLike(item.id, item.name)" class="divLike">
+        <img *ngIf="item.like; else like"  src="{{imgLikeGray}}" height="30px">
+        <ng-template #like>
+          <img src="{{imgLike}}" height="30px">
+        </ng-template>
+      </div>
+    </td>
+</table>
+
+<div class="divCenter">
+  <button (click)="setCards()" class="btnOne">Generar Nombres</button> 
+</div>
+
+<div *ngIf="likes.length > 0" class="divFavs">
+  <h3>Favoritos:</h3>
+  <td *ngFor="let item of likes" class="tdNames">
+    {{item}} <br>
+    <img src="{{imgLike}}" height="30px">
+  </td>
+</div>
+
 </div>

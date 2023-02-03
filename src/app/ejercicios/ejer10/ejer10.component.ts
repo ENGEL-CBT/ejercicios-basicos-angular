@@ -6,47 +6,64 @@ import { Component } from '@angular/core';
 })
 export class Ejer10Component {  
 
-  letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-  conju = ['h','l','r','y']
-  noConju = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
-  vocales = ['a','e','i','o','u']
+  card = {
+    id: 0,
+    name: '',
+    like: false
+  }
 
-  fakeRows = new Array(2)
-  fakeColumns = new Array(3)
+  cards = [
+    {id: 0, name: this.getNombre(), like: false},
+    {id: 1, name: this.getNombre(), like: false},
+    {id: 2, name: this.getNombre(), like: false},
+    {id: 3, name: this.getNombre(), like: false},
+    {id: 4, name: this.getNombre(), like: false},
+    {id: 5, name: this.getNombre(), like: false},
+    {id: 6, name: this.getNombre(), like: false},
+    {id: 7, name: this.getNombre(), like: false}
+  ]
+  likes: string[] = []  
 
   imgLike = '../../../assets/images/heart.png'
   imgLikeGray = '../../../assets/images/heart-gray.png'
-  imgChange = true
 
-  likesMap = new Map<string, boolean>()
-  namesMap = new Map<string, string>()
-  favImages: string[] = []
-
-  likeChange(key: any) {
-    var valor = this.likesMap.get(key)
-    console.log("************* Value: " + this.likesMap.get(key))
-    if (valor == true) valor = false
-    else valor = true
-    this.likesMap.set(key, valor);
-    console.log("************* Value: " + this.likesMap.get(key))
-    var name = this.namesMap.get(key)
-    this.favImages.push(name!)
-    console.log("************* Name Inn: " + name)
-    console.log("************* favImage: " + this.favImages[this.favImages.length - 1])
+  setCard(id: any) {
+    var card = { id: id, name: this.getNombre(), like: false }
+    this.cards.push(card)
+    return card
   }
 
-  setMap(key: string) {
-    this.likesMap.set(key, true)
+  setCards() {
+    while (this.cards.length > 0) {
+      this.cards.pop()
+    }
+    console.log("************ cards.length: " + this.cards.length)
+    for (var i = 0; i < 8; i++){
+      this.cards[i] = this.setCard(i+1)
+    }
   }
 
-  setNames(key: string) {
-    var name = this.getNombre()
-    this.namesMap.set(key, name)
-    return name
+  getCard(id: any) {
+    var n = 0
+    for (var i = 0; i < this.cards.length; i++) {
+      if (this.cards[i].id == id) {
+        n = i
+      }
+    }
+    return this.cards[n]
   }
 
-  generarNombres() {
-    
+  setLikeName(name: any) {
+    this.likes.push(name)
+  }
+
+  setLike(id: any, name: any) {
+    this.likes.push(name)
+    for (var i = 0; i < this.cards.length; i++) {
+      if (this.cards[i].id == id) {
+        this.cards[i].like = false
+      }
+    }
   }
 
   getRandom() {
@@ -59,40 +76,44 @@ export class Ejer10Component {
   }
 
   getNombre(){
+    var letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    var conju = ['h','l','r','y']
+    var noConju = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
+    var vocales = ['a','e','i','o','u']
     var n = Math.floor(Math.random() * 8) + 3;
     var name = '';
     var la = '';
     let l = '';
     for (var i = 0; i < n; i++) {
-      l = this.getLetra(this.letras);
+      l = this.getLetra(letras);
       if (i <= 0) {
         la = l;
         name = l;
       } else {
         var conso = false;
         var vocal = 0;
-        for (const x in this.noConju) {
-          if (name[name.length - 1] == this.noConju[x]) { 
+        for (const x in noConju) {
+          if (name[name.length - 1] == noConju[x]) { 
             conso = true;
           } 
         }
         if (name.length >= 3) { 
-          for (const x in this.vocales) { 
-            if (name[name.length - 1] == this.vocales[x]) { 
+          for (const x in vocales) { 
+            if (name[name.length - 1] == vocales[x]) { 
               vocal++;
             }
-            if (name[name.length - 2] == this.vocales[x]) { 
+            if (name[name.length - 2] == vocales[x]) { 
               vocal++;
             }
-            if (name[name.length - 3] == this.vocales[x]) { 
+            if (name[name.length - 3] == vocales[x]) { 
               vocal++;
             }
           }
         }
         if (conso) {
-          l = this.getLetra(this.vocales);
+          l = this.getLetra(vocales);
         } else if (vocal == 3) {
-          l = this.getLetra(this.conju);
+          l = this.getLetra(conju);
         }
         la = l;
         name += l;

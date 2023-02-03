@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 body {
+    width: auto;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
     background: #fff;
     color: rgb(102, 102, 102);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.5em;
     line-height: 1.5;
-    margin: 0;
     padding: 0% 3% 0% 3%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
@@ -34,9 +37,8 @@ td {
 .tableNames {
     width: 100%;
     text-align: center;
+    border: 0px !important;
     /* border-spacing: 8vh; */
-    -webkit-border-horizontal-spacing: 4vh;
-    -webkit-border-vertical-spacing: 4vh;
     /* display: inline-table;
     border: 1px solid rgb(130, 101, 133);
     padding: 1%;
@@ -44,11 +46,12 @@ td {
 }
 
 .tdNames {
-    width: 16%;
+    width: 24%;
     height: 10vh;
     border: 1px solid rgb(130, 101, 133);
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 8vh;
+    float: left;
     /* margin-right: 26vh;
     margin-bottom: 8vh; */
     /* display: inline-block; */
@@ -110,5 +113,12 @@ button:hover {
 
 .divLike {
     width: fit-content;
-    display: contents;
+    /* display: contents; */
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divFavs {
+    display: flow-root;
 }
