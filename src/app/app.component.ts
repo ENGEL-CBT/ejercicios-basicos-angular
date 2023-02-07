@@ -6,7 +6,6 @@ import { Ejer3Component } from './ejercicios/ejer3/ejer3.component';
 import { Ejer4Component } from './ejercicios/ejer4/ejer4.component';
 import { Ejer5Component } from './ejercicios/ejer5/ejer5.component';
 import { Ejer6Component } from './ejercicios/ejer6/ejer6.component';
-import { Ejer7Component } from './ejercicios/ejer7/ejer7.component';
 import { Ejer8Component } from './ejercicios/ejer8/ejer8.component';
 import { Ejer9Component } from './ejercicios/ejer9/ejer9.component';
 import { Ejer10Component } from './ejercicios/ejer10/ejer10.component';
@@ -22,18 +21,21 @@ import { CronometroComponent } from './ejercicios/cronometro/cronometro.componen
 export class AppComponent implements OnInit  {
 
   title = 'ejercicios-basicos'
-  ejercicios = [1,2,3,4,5,6,7,8,9,10]
-  componentes = [Ejer1Component, Ejer2Component, DadoComponent, CronometroComponent, Ejer5Component, Ejer6Component, Ejer7Component, Ejer8Component, Ejer9Component, Ejer10Component]
+  ejercicios = [1,2,3,4,5,6,8,9,10]
+  componentes = [Ejer1Component, Ejer2Component, DadoComponent, CronometroComponent, Ejer5Component, Ejer6Component, Ejer8Component, Ejer9Component, Ejer10Component]
 
   componente: any = Ejer1Component
+  colorFondo = 'white'
 
   constructor() { }
 
   ngOnInit() {
     this.setComponent(0)
+    this.colorFondo = this.getRandomColor()
   }
 
   setComponent(index: number) {
+    this.colorFondo = this.getRandomColor()
     this.componente = this.componentes[index]
   }
 

@@ -3,28 +3,10 @@
   
   <h3>Ejercicio 6</h3>
   
-  <h3>Interpolación de Datos:</h3>
+  <h3>Componentes: enlace de propiedades (Property Binding):</h3>
 
-  <p>
-    Nombre: {{nombre}} <br>
-    Apellido: {{apellido}} <br>
-    Edad: {{edad}}
-  </p>
-  <p *ngIf="edad >= 18; else menor">
-    Es mayor de edad <br>
-    Salarios cobrados: <br>
-    <td *ngFor="let sueldo of sueldos; let i = index;" id="salarios"> {{meses[i]}}: {{sueldo | currency: 'EUR'}} </td>
-    Media de salario: {{sumarSueldos()/sueldos.length | currency: 'EUR'}} <br>
-  </p>
-  <ng-template #menor> 
-    <p>
-    Es menor de edad <br>
-    Está estudiando
-    </p> 
-  </ng-template>
-  <p>
-    Consulta: <input type="text" [(ngModel)]="consulta" placeholder="Ingrese su consulta" /> <br>
-    Consulta ingresada: <strong> {{consulta}} </strong> <br>
-  </p>
+  <app-listadoarticulos [datos]="articulos"></app-listadoarticulos>
+
+  
 
 </div>

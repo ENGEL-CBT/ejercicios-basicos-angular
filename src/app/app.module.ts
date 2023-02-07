@@ -11,7 +11,6 @@ import { Ejer3Component } from './ejercicios/ejer3/ejer3.component';
 import { Ejer4Component } from './ejercicios/ejer4/ejer4.component';
 import { Ejer5Component } from './ejercicios/ejer5/ejer5.component';
 import { Ejer6Component } from './ejercicios/ejer6/ejer6.component';
-import { Ejer7Component } from './ejercicios/ejer7/ejer7.component';
 import { Ejer8Component } from './ejercicios/ejer8/ejer8.component';
 import { Ejer9Component } from './ejercicios/ejer9/ejer9.component';
 import { Ejer10Component } from './ejercicios/ejer10/ejer10.component';
@@ -19,6 +18,9 @@ import { DadoComponent } from './ejercicios/dado/dado.component';
 import { DadosComponent } from './ejercicios/dado/dados/dados.component';
 import { CronometroComponent } from './ejercicios/cronometro/cronometro.component';
 import { CronoHijoComponent } from './ejercicios/cronometro/crono-hijo/crono-hijo.component';
+import { SelectornumericoComponent } from './ejercicios/ejer5/selectornumerico/selectornumerico.component';
+import { ListadoarticulosComponent } from './ejercicios/ejer6/listadoarticulos/listadoarticulos.component';
+import { Ejer7Module } from './ejercicios/ejer7/ejer7.module';
 
 @NgModule({
   declarations: [
@@ -29,21 +31,24 @@ import { CronoHijoComponent } from './ejercicios/cronometro/crono-hijo/crono-hij
     Ejer4Component,
     Ejer5Component,
     Ejer6Component,
-    Ejer7Component,
     Ejer8Component,
     Ejer9Component,
     Ejer10Component,
     DadoComponent,
     DadosComponent,
     CronometroComponent,
-    CronoHijoComponent
+    CronoHijoComponent,
+    SelectornumericoComponent,
+    ListadoarticulosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    Ejer7Module
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
