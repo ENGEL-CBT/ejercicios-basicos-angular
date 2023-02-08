@@ -1,0 +1,24 @@
+<h3>Ejercicio 12</h3>  
+
+<h3>Servicios: recuperación de datos de un servidor web:</h3>
+
+<div *ngIf="users!=null; else espera">
+    <table border="1">
+      <tr>
+        <td>Id</td><td>Nombre</td><td>Apellido</td><td>Edad</td><td>Género</td><td>Email</td><td>Teléfono</td><td>Imagen</td>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>
+            <img src="{{user.image}}" width="200px">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #espera>Esperando datos...</ng-template>
