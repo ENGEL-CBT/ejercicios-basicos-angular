@@ -3,28 +3,29 @@
   
   <h3>Ejercicio 8</h3>
   
-  <h3>Interpolación de Datos:</h3>
+  <h3>Petición de un archivo JSON a un servidor:</h3>
 
-  <p>
-    Nombre: {{nombre}} <br>
-    Apellido: {{apellido}} <br>
-    Edad: {{edad}}
-  </p>
-  <p *ngIf="edad >= 18; else menor">
-    Es mayor de edad <br>
-    Salarios cobrados: <br>
-    <td *ngFor="let sueldo of sueldos; let i = index;" id="salarios"> {{meses[i]}}: {{sueldo | currency: 'EUR'}} </td>
-    Media de salario: {{sumarSueldos()/sueldos.length | currency: 'EUR'}} <br>
-  </p>
-  <ng-template #menor> 
-    <p>
-    Es menor de edad <br>
-    Está estudiando
-    </p> 
-  </ng-template>
-  <p>
-    Consulta: <input type="text" [(ngModel)]="consulta" placeholder="Ingrese su consulta" /> <br>
-    Consulta ingresada: <strong> {{consulta}} </strong> <br>
-  </p>
+
+  <div *ngIf="productos!=null; else espera">
+    <table border="1">
+      <tr>
+        <td>Codigo</td><td>Descripcion</td><td>Precio</td><td>Descuento</td><td>Rating</td><td>Stock</td><td>Marca</td><td>Imagen</td>
+      </tr>
+      <tr *ngFor="let art of productos">
+        <td>{{art.id}}</td>
+        <td>{{art.title}}</td>
+        <td>{{art.price}}</td>
+        <td>{{art.discountPercentage}}</td>
+        <td>{{art.rating}}</td>
+        <td>{{art.stock}}</td>
+        <td>{{art.brand}}</td>
+        <td> <img src="{{art.thumbnail}}" width="200px"></td>        
+      </tr>
+    </table>
+  </div>
+  
+  <ng-template #espera>Esperando datos...</ng-template>
+
+  
 
 </div>
