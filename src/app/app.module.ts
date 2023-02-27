@@ -29,6 +29,7 @@ import { Ejer12Component } from './ejercicios/ejer12/ejer12.component';
 import { Ejer13Component } from './ejercicios/ejer13/ejer13.component';
 import { Ejer14Component } from './ejercicios/ejer14/ejer14.component';
 import { Ejer15Component } from './ejercicios/ejer15/ejer15.component';
+import { LetrasPipe } from './ejercicios/ejer13/letras.pipe';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { Ejer15Component } from './ejercicios/ejer15/ejer15.component';
     Ejer12Component,
     Ejer13Component,
     Ejer14Component,
-    Ejer15Component
+    Ejer15Component,
+    LetrasPipe
   ],
   imports: [
     BrowserModule,

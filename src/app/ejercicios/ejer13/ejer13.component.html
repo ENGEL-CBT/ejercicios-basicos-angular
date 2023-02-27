@@ -1,3 +1,48 @@
 <h3>Ejercicio 13</h3>  
 
-<h3>XXX:</h3>
+<h3>Pipes:</h3>
+
+<table>
+    <tr>
+        <th>Sin Pipes</th>
+        <th>Con Pipes</th>
+    </tr>
+    <tr>
+        <td>
+            <p>Nombre del cliente: {{ nombre }}</p>
+            <p>El saldo es: {{ saldo }}</p>
+            <p>Días laborables: {{ dias }}</p>
+            <p>{{ articulos }}</p>
+            <p>Fecha actual: {{ fechaActual }}</p>
+        </td>
+        <td>
+            <p>Nombre del cliente en mayúsculas: {{ nombre | uppercase }}</p>
+            <p>Nombre del cliente en minúsculas: {{ nombre | lowercase }}</p>
+            <p>El saldo es: {{ saldo | currency:'$'}}</p>
+            <p>Días laborables: {{ dias | slice:1:6}}</p>
+            <p>{{ articulos | json }}</p>
+            <p>Fecha actual: {{ fechaActual | date:'d/M/y' }}</p>
+        </td>
+    </tr>
+</table>
+
+<h3>Pipes Personalizados:</h3>
+
+<h4>Números en castellano</h4>
+<ul>
+  <li *ngFor="let valor of vector">
+    {{valor | letras}}
+  </li>
+</ul>
+<h4>Números en inglés</h4>
+<ul>
+  <li *ngFor="let valor of vector">
+    {{valor | letras:'ingles'}}
+  </li>
+</ul>
+<h4>Números en portugués</h4>
+<ul>
+  <li *ngFor="let valor of vector">
+    {{valor | letras:'portugues'}}
+  </li>
+</ul>
